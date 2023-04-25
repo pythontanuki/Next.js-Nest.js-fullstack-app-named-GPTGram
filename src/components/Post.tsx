@@ -55,7 +55,6 @@ export const Post: React.FC<Props> = ({
           h={"30px"}
         />
         <Text>{displayName}</Text>
-        {}
         <Text>{postedAt}</Text>
       </Flex>
       <Image
@@ -81,10 +80,14 @@ export const Post: React.FC<Props> = ({
       </Flex>
       <Text>{`${displayName} ${commentByPostOwner}`}</Text>
       <Text>{`コメント${commentAmount}件をすべて見る`}</Text>
-      <Text>
-        {`${representativeUserNameOfComments_first} ${representativeCommentContent_first}`}
-        {`${representativeUserNameOfComments_second} ${representativeCommentContent_second}`}
-      </Text>
+      <VStack>
+        <Text>
+          {`${representativeUserNameOfComments_first} ${representativeCommentContent_first}`}
+        </Text>
+        <Text>
+          {`${representativeUserNameOfComments_second} ${representativeCommentContent_second}`}
+        </Text>
+      </VStack>
       <Text>コメントを追加</Text>
     </VStack>
   );
