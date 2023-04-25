@@ -7,6 +7,7 @@ const Timeline = () => {
       <VStack>
         <HStack
           ml={"150px"}
+          mb={"50px"}
           alignItems={"flex-start"}
           border={"1px"}
           borderColor={"gray.300"}

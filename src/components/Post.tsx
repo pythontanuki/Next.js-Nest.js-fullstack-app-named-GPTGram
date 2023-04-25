@@ -1,10 +1,8 @@
-import { Avatar, Flex, Text, VStack, Image, Box } from "@chakra-ui/react";
+import { Avatar, Flex, Text, VStack, Image, Divider } from "@chakra-ui/react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
 import { FiSend } from "react-icons/fi";
 import { RiBookmarkLine } from "react-icons/ri";
-//add verified mark
-// import { MdVerified } from "react-icons/md";
 
 type Props = {
   avatarImage: {
@@ -46,7 +44,7 @@ export const Post: React.FC<Props> = ({
   postedAt,
 }) => {
   return (
-    <VStack>
+    <VStack px={"40px"} py={"40px"}>
       <Flex>
         <Avatar
           name={`${displayName}+'s Post`}
@@ -60,7 +58,7 @@ export const Post: React.FC<Props> = ({
       <Image
         src={postImage.url}
         alt="Any is OK."
-        boxSize={"100px"}
+        boxSize={"200px"}
         objectFit="cover"
       />
       <Flex>
@@ -70,12 +68,7 @@ export const Post: React.FC<Props> = ({
         <RiBookmarkLine />
       </Flex>
       <Flex>
-        <Image
-          src={representativeAvatarOfLikes.url}
-          alt="Any is OK"
-          h={"8px"}
-          w={"8px"}
-        />
+        <Avatar src={representativeAvatarOfLikes.url} h={"30px"} w={"30px"} />
         <Text>{`${representativeUserNameOfLikes}、その他が「いいね！」しました`}</Text>
       </Flex>
       <Text>{`${displayName} ${commentByPostOwner}`}</Text>
