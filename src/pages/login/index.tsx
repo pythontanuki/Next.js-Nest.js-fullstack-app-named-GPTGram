@@ -14,7 +14,9 @@ const Login: React.FC = () => {
   if (session) {
     return (
       <>
-        <Text color={"gray.400"}>You are signed as {session.user?.email}</Text>
+        <Text color={"gray.400"} fontFamily={"Anonymous Pro"}>
+          You are signed as {session.user?.email}
+        </Text>
         <Button
           color={"white"}
           px={"45px"}
@@ -22,6 +24,7 @@ const Login: React.FC = () => {
           borderRadius={"full"}
           bg={"deepskyblue"}
           onClick={() => signOut()}
+          fontFamily={"Anonymous Pro"}
         >
           Logout
         </Button>
@@ -31,10 +34,20 @@ const Login: React.FC = () => {
   }
 
   return (
-    <VStack>
-      <Text mt={"20px"}>Would you like to join the GPTGram Member ?</Text>
+    <VStack display={"Flex"} h={"600px"} justify="center">
+      <Text
+        color={"deepskyblue"}
+        fontWeight={"bold"}
+        fontSize={"65px"}
+        fontFamily={"Anonymous Pro"}
+        mb={"10px"}
+      >
+        Would you like to join the GPTGram Member ?
+      </Text>
       <Button
         color={"white"}
+        fontSize={"40px"}
+        fontFamily={"Anonymous Pro"}
         px={"45px"}
         py={"10px"}
         borderRadius={"full"}
