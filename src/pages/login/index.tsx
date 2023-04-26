@@ -1,61 +1,49 @@
-import {
-  VStack,
-  FormLabel,
-  FormControl,
-  Input,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Home from "..";
+import { Button, VStack, Text } from "@chakra-ui/react";
 
-const Login = () => {
+import type React from "react";
+
+const Login: React.FC = () => {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return null;
+  }
+
+  if (session) {
+    return (
+      <>
+        <Text color={"gray.400"}>You are signed as {session.user?.email}</Text>
+        <Button
+          color={"white"}
+          px={"45px"}
+          py={"10px"}
+          borderRadius={"full"}
+          bg={"deepskyblue"}
+          onClick={() => signOut()}
+        >
+          Logout
+        </Button>
+        <Home />
+      </>
+    );
+  }
+
   return (
     <VStack>
       <Text mt={"20px"}>Would you like to join the GPTGram Member ?</Text>
-      <FormControl>
-        <FormLabel mt={"20px"} mb={"5px"}>
-          Email address
-        </FormLabel>
-        <Input
-          type="email"
-          borderWidth={"1px"}
-          placeholder="example@example.com"
-          h={"50px"}
-          w={"400px"}
-          borderRadius={"md"}
-          mb="20px"
-        />
-        <FormLabel mb={"5px"}>UserName</FormLabel>
-        <Input
-          type="text"
-          placeholder="UserName"
-          borderWidth={"1px"}
-          h={"50px"}
-          w={"400px"}
-          borderRadius={"md"}
-          mb="20px"
-        />
-        <FormLabel mb={"5px"}>Password</FormLabel>
-        <Input
-          type="text"
-          placeholder="More than 7 characters, please."
-          h={"50px"}
-          w={"400px"}
-          borderRadius={"md"}
-          borderWidth={"1px"}
-          mb="20px"
-        ></Input>
-      </FormControl>
       <Button
         color={"white"}
         px={"45px"}
         py={"10px"}
         borderRadius={"full"}
         bg={"deepskyblue"}
+        onClick={() => signIn()}
       >
         Login
       </Button>
     </VStack>
   );
 };
-
 export default Login;

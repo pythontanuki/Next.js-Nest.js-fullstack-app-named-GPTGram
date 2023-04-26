@@ -1,5 +1,5 @@
 import { AccountBar } from "@/components/AccountBar";
-import { VStack, Flex, Text } from "@chakra-ui/react";
+import { VStack, Flex, Text, Button } from "@chakra-ui/react";
 
 const Widgets = () => {
   return (
