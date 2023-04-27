@@ -42,7 +42,7 @@ const Login: React.FC = () => {
         fontFamily={"Anonymous Pro"}
         mb={"10px"}
       >
-        Would you like to join the GPTGram Member ?
+        Would you like to join the GPTGram?
       </Text>
       <Button
         color={"white"}
